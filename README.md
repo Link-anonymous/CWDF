@@ -8,7 +8,7 @@ This repository contains code for paper "Robust RGB-D Salient Object Detection v
 | [Caffe](https://github.com/BVLC/caffe) | [CUDA10](https://developer.nvidia.com/cuda-downloads) | [CUDNN7.5](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/) | [Matlab2016b](https://www.mathworks.com/) |
 
 ## Testing
-1. Download [RGBD datasets]((https://drive.google.com/open?id=1DSJh3Tx_L48QPPXwtdTmNz3LELovAJpm)) or [Testing sets](https://drive.google.com/open?id=1--_tAMlg_aUe_Qlub3H5oTQ2qGdqX-CW) from the anonymous links and extract it to `./CWDF/Dataset/Test/`
+1. Download [RGBD datasets](https://drive.google.com/open?id=1DSJh3Tx_L48QPPXwtdTmNz3LELovAJpm) or [Testing sets](https://drive.google.com/open?id=1--_tAMlg_aUe_Qlub3H5oTQ2qGdqX-CW) from the anonymous links and extract it to `./CWDF/Dataset/Test/`
 
 2. Download our pretrained model from the [anonymous link](https://drive.google.com/open?id=19X4D3k1P7PUWsn6Y6mq6vtk4lsmbLmgB)
 * "Ours.caffemodel" should put into the folder "Ours"
