@@ -14,7 +14,7 @@ end
     
 net = caffe.Net('./deploy.prototxt', './Ours.caffemodel', 'test');
 
-dir_Dataset = '../../../0Data_Process/3Test/';% modify here to fit your data path
+dir_Dataset = '../Dataset/Test/';% modify here to fit your data path
 dir_Result = './Result/';
 Dataset = {'NLPR','STERE','SSD','LFSD','DES','NJUDS'};
 
@@ -24,14 +24,7 @@ for d = 1:length(Dataset)
     dir_rgb = [dir_Dataset ds '/RGB/'];
     dir_depth = [dir_Dataset ds '/depth/'];
 
-    mkdir([dir_Result ds '/dgb/']); % dgb branch
-    mkdir([dir_Result ds '/rdb/']); % rdb branch
-    mkdir([dir_Result ds '/rgd/']); % rgd branch
-    
-    mkdir([dir_Result ds '/fuse1/']); % saliency-wise fusion1 branch
-    mkdir([dir_Result ds '/fuse2/']); % saliency-wise fusion2 branch
-    mkdir([dir_Result ds '/fuse3/']); % saliency-wise fusion3 branch
-    mkdir([dir_Result ds '/fuse4/']); % final fusion results
+    mkdir([dir_Result ds '/fuse/']); % final fusion results
 
 
     list = dir([dir_rgb '*.jpg']);
@@ -61,40 +54,10 @@ for d = 1:length(Dataset)
 
         net.forward_prefilled();
 
-        dgb = net.blobs('dgb_sal').get_data();
-        uu = dgb';
-        uu1 = (uu-min(min(uu)))/(max(max(uu))-min(min(uu)));
-        imwrite(imresize(uu1,[m,n]),[dir_Result ds '/dgb/' list(i).name]);
-
-        rdb = net.blobs('rdb_sal').get_data();
-        uu = rdb';
-        uu1 = (uu-min(min(uu)))/(max(max(uu))-min(min(uu)));
-        imwrite(imresize(uu1,[m,n]),[dir_Result ds '/rdb/' list(i).name]);
-
-        rgd = net.blobs('rgd_sal').get_data();
-        uu = rgd';
-        uu1 = (uu-min(min(uu)))/(max(max(uu))-min(min(uu)));
-        imwrite(imresize(uu1,[m,n]),[dir_Result ds '/rgd/' list(i).name]);
-
-        csal1 = net.blobs('fuse1_sal').get_data();
-        uu = csal1';
-        uu1 = (uu-min(min(uu)))/(max(max(uu))-min(min(uu)));
-        imwrite(imresize(uu1,[m,n]),[dir_Result ds '/fuse1/' list(i).name]);
-
-        csal2 = net.blobs('fuse2_sal').get_data();
-        uu = csal2';
-        uu2 = (uu-min(min(uu)))/(max(max(uu))-min(min(uu)));
-        imwrite(imresize(uu2,[m,n]),[dir_Result ds '/fuse2/' list(i).name]);
-
-        csal3 = net.blobs('fuse3_sal').get_data();
-        uu = csal3';
-        uu3 = (uu-min(min(uu)))/(max(max(uu))-min(min(uu)));
-        imwrite(imresize(uu3,[m,n]),[dir_Result ds '/fuse3/' list(i).name]);
-
-        csal4 = net.blobs('fuse4_sal').get_data();
-        uu = csal4';
+        fuse = net.blobs('fuse4_sal').get_data();
+        uu = fuse';
         uu4 = (uu-min(min(uu)))/(max(max(uu))-min(min(uu)));
-        imwrite(imresize(uu4,[m,n]),[dir_Result ds '/fuse4/' list(i).name]);
+        imwrite(imresize(uu4,[m,n]),[dir_Result ds '/fuse/' list(i).name]);
     end
 end
 caffe.reset_all();

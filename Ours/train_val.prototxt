@@ -13,12 +13,12 @@ layer {
     mean_value: 112.768360
   }
   image_data_param {
-    source: "../../0Data_Process/1Train_2times/train_png.txt"
+    source: "../Dataset/Train/train_png.txt"
     batch_size: 1
     new_height: 224
     new_width: 224
     is_color: true
-    root_folder: "../../0Data_Process/1Train_2times/RGB/"
+    root_folder: "../Dataset/Train/RGB/"
   }
 }
 layer {
@@ -34,12 +34,12 @@ layer {
     mean_value: 127.840869
   }
   image_data_param {
-    source: "../../0Data_Process/1Train_2times/train_png.txt"
+    source: "../Dataset/Train/train_png.txt"
     batch_size: 1
     new_height: 224
     new_width: 224
     is_color: false
-    root_folder: "../../0Data_Process/1Train_2times/depth/"
+    root_folder: "../Dataset/Train/depth/"
   }
 }
 layer {
@@ -54,12 +54,12 @@ layer {
     scale: 0.00390625
   }
   image_data_param {
-    source: "../../0Data_Process/1Train_2times/train_png.txt"
+    source: "../Dataset/Train/train_png.txt"
     batch_size: 1
     new_height: 224
     new_width: 224
     is_color: false
-    root_folder: "../../0Data_Process/1Train_2times/GT/"
+    root_folder: "../Dataset/Train/GT/"
   }
 }
 layer {
@@ -77,12 +77,12 @@ layer {
     mean_value: 112.768360
   }
   image_data_param {
-    source: "../../0Data_Process/1Train_2times/train_png.txt"
+    source: "../Dataset/Train/train_png.txt"
     batch_size: 1
     new_height: 224
     new_width: 224
     is_color: true
-    root_folder: "../../0Data_Process/1Train_2times/RGB/"
+    root_folder: "../Dataset/Train/RGB/"
   }
 }
 layer {
@@ -98,12 +98,12 @@ layer {
     mean_value: 127.840869
   }
   image_data_param {
-    source: "../../0Data_Process/1Train_2times/train_png.txt"
+    source: "../Dataset/Train/train_png.txt"
     batch_size: 1
     new_height: 224
     new_width: 224
     is_color: false
-    root_folder: "../../0Data_Process/1Train_2times/depth/"
+    root_folder: "../Dataset/Train/depth/"
   }
 }
 layer {
@@ -118,12 +118,12 @@ layer {
     scale: 0.00390625
   }
   image_data_param {
-    source: "../../0Data_Process/1Train_2times/train_png.txt"
+    source: "../Dataset/Train/train_png.txt"
     batch_size: 1
     new_height: 224
     new_width: 224
     is_color: false
-    root_folder: "../../0Data_Process/1Train_2times/GT/"
+    root_folder: "../Dataset/Train/GT/"
   }
 }
 layer {
